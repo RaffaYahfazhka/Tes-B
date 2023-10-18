@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/flowbite.min.css" rel="stylesheet" />
+    <title>Vue.js HTTP Requests</title>
+</head>
+<body>
+    <div class="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
+        <div class="flex flex-col mb-6 lg:justify-between lg:flex-row md:mb-8">
+          <h2 class="max-w-lg mb-5 font-sans text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl sm:leading-none md:mb-6 group">
+            <span class="text-green-700 inline-block mb-1 sm:mb-4">
+              We're<br class="hidden md:block" />
+              Hiring
+            </span>
+            <div class="h-1 ml-auto duration-300 origin-left transform bg-deep-purple-accent-400 scale-x-30 group-hover:scale-x-100"></div>
+          </h2>
+        </div>
+        <div class="grid gap-6 row-gap-5 mb-8 lg:grid-cols-2 sm:row-gap-6 sm:grid-cols-2">
+          <a href="/" aria-label="View Item">
+            <div class="relative overflow-hidden transition duration-200 transform rounded shadow-lg hover:-translate-y-2 hover:shadow-2xl">
+            <div class="w-full h-20 md:h-20 xl:h-20 bg-orange-100 text-sm font-medium tracking-wide text-green-600"><span>Marketing Planner</span></div>
+              <div class="absolute inset-x-0 bottom-0 px-6 py-4 bg-orange-600">
+                <button  class="absolute inset-x-0 bottom-0 px-6 py-4 bg-orange-600 text-white"> 
+                    See Job
+                </button>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+    <div >
+      <section class="bg-transparent">
+      <div class="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 gap-x-16 gap-y-8 lg:grid-cols-5">
+  
+          <div class="rounded-lg bg-orange-50 p-8 shadow-lg lg:col-span-3 lg:p-12">
+            
+            <span class="text-green-600">Marketing Planner</span>
+            <br><br>
+            <h1 class="font-bold">Job Description : </h1>
+            <li>Monitor competition to identify new industry trends and opportunities for innovation</li>
+            <li>Develop marketing strategies based on customer preferences, business objectives, and available resources</li>
+            <li>Conduct market research to identify potential customers and assess their needs, interests, and preferences</li>
+            <li>Work with design teams to develop marketing materials such as brochures, ads, and presentations</li>
+            <li>Create an advertising budget that reflects the company’s priorities while remaining within the parameters set by upper management</li>
+            <li>Develop an effective communications strategy for each campaign using several different channels, including social media, email, push notification, print ads</li>
+            <li>Create a detailed timeline of all marketing activities, including production schedules, deadlines for materials delivery, and event dates and locations</li>
+            <li>Provide feedback to superiors regarding the effectiveness of new campaigns and recommend adjustments</li>
+            <br><br>
+            <h1 class="font-bold">Skill : </h1>
+            <li>Minimum bachelor degree in Marketing Management;</li>
+            <li>Minimum 3-5 years experience as Marketing Manager/Director in any marketplace industry;</li>
+            <li>Good time management and project management skill;</li>
+            <li>Creative communication skill in both verbal and design</li>
+            <li>Multi-language abilities in verbal and non-verbal</li>
+            <span></span>
+            <br><br>
+            <h1 class="font-bold">Send Your Job Application </h1>
+            <br><br>
+            <div id="app">
+              <form @submit.prevent="applyForJob" class="space-y-4">
+                <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                  <div>
+                    <label class="sr-only" for="email">Name</label>
+                    <input
+                      class="w-full rounded-lg border-gray-200 p-3 text-sm"
+                      placeholder="Name"
+                      type="text"
+                      id="name"
+                      v-model="applyData.displayName" required
+                    />
+                  </div>
+    
+                  <div>
+                    <label class="sr-only" for="subject">Subject</label>
+                    <input
+                      class="w-full rounded-lg border-gray-200 p-3 text-sm"
+                      placeholder="Subject"
+                      type="text"
+                      id="subject"
+                      v-model="applyData.subject" required
+                    />
+                  </div>
+                </div>
+    
+                <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                  <div>
+                    <label class="sr-only" for="number">Mobile Number</label>
+                    <input
+                      class="w-full rounded-lg border-gray-200 p-3 text-sm"
+                      placeholder="Mobile number"
+                      type="tel"
+                      id="number"
+                      v-model="applyData.phone" required
+                    />
+                  </div>
+                  <div>
+                    <label class="sr-only" for="email">Email</label>
+                    <input
+                      class="w-full rounded-lg border-gray-200 p-3 text-sm"
+                      placeholder="Email address"
+                      type="email"
+                      id="email"
+                      v-model="applyData.email" required
+                    />
+                  </div>
+                </div>
+    
+                <div>
+                  <label class="sr-only" for="message">Comment</label>
+    
+                  <textarea
+                    class="w-full rounded-lg border-gray-200 p-3 text-sm"
+                    placeholder="Message"
+                    rows="8"
+                    v-model="applyData.message" required
+                    id="message"
+                  ></textarea>
+                </div>
+    
+                <div class="mt-4">
+                  <button type="submit" class="hover:shadow-md transition ease-in-out delay-50 hover:-translate-y-1 hover:scale-10 duration-300 mt-7 inline-block rounded-full bg-gray-100 px-12 py-3 text-sm font-medium text-gray-900 hover:text-gray-100 hover:shadow-md hover:bg-gray-900">
+                    Submit
+                  </button>
+                </div>
+    
+              </form>
+            </div>
+           
+          </div>
+        </div>
+      </div>
+  
+    </section>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/flowbite.min.js"></script>
